@@ -35,7 +35,7 @@ source .venv/bin/activate
 
 ### Instalar dependencias
 
-Finalmente, desde la raiz del proyecto ejecuta:
+Finalmente, desde la raíz del proyecto ejecuta:
 
 ```bash
 uv pip install -r requirements.txt
