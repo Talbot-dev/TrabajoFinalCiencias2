@@ -1,11 +1,11 @@
-## Instalación
+# Instalación
 
 Asegurate de tener previamente instalado:
 
 - Python 3.10 o superior.
 - [uv](https://docs.astral.sh/uv/getting-started/installation/).
 
-### Clonar el repo
+## Clonar el repo
 
 ```bash
 git clone git@github.com:Talbot-dev/TrabajoFinalCiencias2.git
@@ -19,6 +19,7 @@ Estando en la ruta del proyecto, ejecuta:
 ```bash
 uv venv
 ```
+
 y para activar:
 
 **Linux / macOS:**

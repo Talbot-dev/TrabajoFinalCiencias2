@@ -1,24 +1,21 @@
 import heapq
 import networkx as nx
 
-from heuristica import a_estrella, mejor_tramo
+from Heuristica import a_estrella, mejor_tramo
 
-# guardamos en memoria el mst ya calculado. la clave identifica el
-# conjunto de puntos de interés, así que mientras los datos no cambien
-# reutilizamos el resultado y no volvemos a ejecutar prim.
 _cache_mst = {}
 
-
+""" Construimos el grafo auxiliar: un grafo completo cuyos nodos son los
+    puntos de interés (emergencias y hospitales) y cuyas aristas llevan
+    como peso el tiempo de la mejor ruta vial entre cada pareja.
+    
+    como las calles pueden ser de un solo sentido, el tiempo de a hacia
+    b puede ser distinto al de b hacia a. por eso calculamos ambos
+    sentidos con a*. como prim trabaja con aristas no dirigidas, nos
+    quedamos con el sentido de menor tiempo y guardamos su ruta real y
+    su dirección. si solo existe ruta en un sentido, usamos ese.
+"""
 def construir_grafo_auxiliar(grafo, puntos):
-    # construimos el grafo auxiliar: un grafo completo cuyos nodos son los
-    # puntos de interés (emergencias y hospitales) y cuyas aristas llevan
-    # como peso el tiempo de la mejor ruta vial entre cada pareja.
-    #
-    # como las calles pueden ser de un solo sentido, el tiempo de a hacia
-    # b puede ser distinto al de b hacia a. por eso calculamos ambos
-    # sentidos con a*. como prim trabaja con aristas no dirigidas, nos
-    # quedamos con el sentido de menor tiempo y guardamos su ruta real y
-    # su dirección. si solo existe ruta en un sentido, usamos ese.
     auxiliar = nx.Graph()
 
     for punto in puntos:
@@ -34,9 +31,7 @@ def construir_grafo_auxiliar(grafo, puntos):
 
             a = puntos[i]
             b = puntos[j]
-
-            # calculamos la ruta de ida y la de vuelta. el diccionario de
-            # caché de heuristica.py evita repetir cálculos ya hechos.
+            
             ida = a_estrella(grafo, a["nodo"], b["nodo"])
             vuelta = a_estrella(grafo, b["nodo"], a["nodo"])
 
@@ -85,15 +80,16 @@ def construir_grafo_auxiliar(grafo, puntos):
     return auxiliar
 
 
+""" Aplicamos el algoritmo de prim sobre el grafo auxiliar. partimos de
+    un nodo, agregamos a una cola de prioridad todas sus aristas y en
+    cada paso sacamos la más barata que conecte con un nodo nuevo.
+    repetimos hasta que no queden nodos alcanzables.
+
+    si el grafo auxiliar no es conexo, reiniciamos desde un nodo no
+    visitado y obtenemos un bosque de expansión mínima, sin detener el
+    programa.
+"""
 def ejecutar_prim(auxiliar):
-    # aplicamos el algoritmo de prim sobre el grafo auxiliar. partimos de
-    # un nodo, agregamos a una cola de prioridad todas sus aristas y en
-    # cada paso sacamos la más barata que conecte con un nodo nuevo.
-    # repetimos hasta que no queden nodos alcanzables.
-    #
-    # si el grafo auxiliar no es conexo, reiniciamos desde un nodo no
-    # visitado y obtenemos un bosque de expansión mínima, sin detener el
-    # programa.
     visitados = set()
     aristas_mst = []
     componentes = 0
@@ -204,13 +200,9 @@ def imprimir_mst(resultado, nombres):
 
 
 # ---------------------------------------------------------------------
-# comparación: rutas individuales vs recorrido mst
+# Comparación: rutas individuales vs recorrido mst
 # ---------------------------------------------------------------------
 def _cobertura(grafo, rutas):
-    # calculamos qué parte de la red vial recorre un conjunto de rutas.
-    # guardamos las intersecciones distintas y las calles distintas, sin
-    # importar el sentido, para no contar dos veces la misma calle. la
-    # longitud de cada calle distinta se suma una sola vez.
     nodos = set()
     tramos = {}
 
@@ -225,12 +217,7 @@ def _cobertura(grafo, rutas):
 
     return nodos, sum(tramos.values())
 
-
 def _rutas_individuales_desde(grafo, base, puntos):
-    # calculamos con a* una ruta independiente desde la base hacia cada
-    # uno de los demás puntos de interés. sumamos los tiempos y las
-    # distancias de todas las rutas, porque cada una se recorre completa
-    # y por separado, aunque comparta calles con otra.
     rutas = []
     tiempo = 0.0
     distancia = 0.0
@@ -256,16 +243,7 @@ def _rutas_individuales_desde(grafo, base, puntos):
 
     return rutas, tiempo, distancia, sin_ruta
 
-
 def comparar_individual_vs_mst(grafo, puntos, hospitales, resultado_mst):
-    # comparamos dos estrategias para conectar todos los puntos de interés:
-    #   a) rutas individuales: desde un hospital base, una ruta a* por
-    #      separado hacia cada punto.
-    #   b) recorrido mst: la red de prim, donde cada conexión se recorre
-    #      una sola vez.
-    #
-    # para ser justos con las rutas individuales, probamos cada hospital
-    # como base y nos quedamos con el que da menor costo total.
     if not hospitales:
         return None
 
@@ -274,7 +252,7 @@ def comparar_individual_vs_mst(grafo, puntos, hospitales, resultado_mst):
     for base in hospitales:
         datos = _rutas_individuales_desde(grafo, base, puntos)
 
-        # preferimos la base con menos puntos sin ruta y, a igualdad,
+        # Preferimos la base con menos puntos sin ruta y, a igualdad,
         # la de menor tiempo total.
         clave = (datos[3], datos[1])
 
@@ -283,17 +261,17 @@ def comparar_individual_vs_mst(grafo, puntos, hospitales, resultado_mst):
 
     _, base, (rutas_ind, tiempo_ind, distancia_ind, sin_ruta) = mejor
 
-    # obtenemos las rutas reales de las conexiones del mst.
+    # Obtenemos las rutas reales de las conexiones del mst.
     rutas_mst = [a["ruta"] for a in resultado_mst["aristas"]]
     tiempo_mst = resultado_mst["peso_total_s"]
     distancia_mst = sum(a["distancia_m"] for a in resultado_mst["aristas"])
 
-    # calculamos la cobertura de cada estrategia sobre el mapa.
+    # Calculamos la cobertura de cada estrategia sobre el mapa.
     nodos_ind, km_ind = _cobertura(grafo, rutas_ind)
     nodos_mst, km_mst = _cobertura(grafo, rutas_mst)
     total_nodos = grafo.number_of_nodes()
 
-    # contamos los puntos de interés alcanzados por cada estrategia.
+    # Contamos los puntos de interés alcanzados por cada estrategia.
     ids_mst = set()
     for a in resultado_mst["aristas"]:
         ids_mst.add(a["origen_id"])
@@ -327,10 +305,8 @@ def comparar_individual_vs_mst(grafo, puntos, hospitales, resultado_mst):
         },
     }
 
-
+# Tabla con las métricas de las dos estrategias y una conclusión que explica el resultado.
 def imprimir_comparacion(comp):
-    # mostramos una tabla con las métricas de las dos estrategias y una
-    # conclusión que explica el resultado.
     ind = comp["individual"]
     mst = comp["mst"]
 

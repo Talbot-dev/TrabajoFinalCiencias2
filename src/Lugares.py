@@ -3,20 +3,17 @@ import os
 import time
 import osmnx as ox
 
-from grafo import CARPETA_PROYECTO, DISTANCIA_MAX_NODO_M
+from Grafo import CARPETA_PROYECTO, DISTANCIA_MAX_NODO
 
-# archivo con los hospitales, puntos de emergencia y ambulancias. para
-# agregar lugares nuevos solo modificamos este archivo.
-RUTA_LUGARES = os.path.join(CARPETA_PROYECTO, "datos", "lugares.json")
+PUNTOS_DE_INTERES = os.path.join(CARPETA_PROYECTO, "datos", "lugares.json")
 
-# archivo donde guardamos las coordenadas obtenidas por geocodificación,
-# para no consultar internet cada vez que ejecutamos el programa.
-RUTA_CACHE = os.path.join(CARPETA_PROYECTO, "datos", "coordenadas_cache.json")
+""" Archivo donde guardamos las coordenadas obtenidas por geocodificación,
+    para no consultar internet cada vez que ejecutamos el programa.
+"""
+RUTAS_CACHE = os.path.join(CARPETA_PROYECTO, "datos", "coordenadas_cache.json")
 
 
-def _leer_json(ruta, valor_por_defecto):
-    # si el archivo no existe devolvemos el valor por defecto, y si
-    # existe lo leemos como utf-8 para conservar tildes y eñes.
+def _leer_ruta_json(ruta, valor_por_defecto):
     if not os.path.exists(ruta):
         return valor_por_defecto
 
@@ -25,8 +22,6 @@ def _leer_json(ruta, valor_por_defecto):
 
 
 def _guardar_json(ruta, datos):
-    # guardamos el diccionario como json legible (con sangría) y sin
-    # escapar los caracteres especiales del español.
     with open(ruta, "w", encoding="utf-8") as archivo:
         json.dump(datos, archivo, ensure_ascii=False, indent=2)
 
@@ -132,7 +127,7 @@ def _asignar_nodos(grafo, lugares):
 
         # si el nodo más cercano queda muy lejos, el lugar está fuera de
         # la cobertura del grafo y no podemos calcular rutas confiables.
-        if distancia > DISTANCIA_MAX_NODO_M:
+        if distancia > DISTANCIA_MAX_NODO:
             print(f"  aviso: {lugar['nombre']} queda a {distancia:.0f} m de la "
                   "calle más cercana (fuera de cobertura). se descarta.")
             continue
@@ -147,10 +142,10 @@ def _asignar_nodos(grafo, lugares):
 def preparar_lugares(grafo):
     # leemos el archivo de datos. si no existe, avisamos con un error
     # claro porque sin él no hay nada que calcular.
-    datos = _leer_json(RUTA_LUGARES, None)
+    datos = _leer_ruta_json(PUNTOS_DE_INTERES, None)
 
     if datos is None:
-        raise FileNotFoundError(f"no encontramos el archivo {RUTA_LUGARES}")
+        raise FileNotFoundError(f"no encontramos el archivo {PUNTOS_DE_INTERES}")
 
     hospitales = datos["hospitales"]
     emergencias = datos["puntos_emergencia"]
@@ -158,13 +153,13 @@ def preparar_lugares(grafo):
 
     # completamos las coordenadas que falten usando la caché o la
     # geocodificación controlada.
-    cache = _leer_json(RUTA_CACHE, {})
+    cache = _leer_ruta_json(RUTAS_CACHE, {})
 
     print("verificando coordenadas de los lugares...")
     cache_modificada = _completar_coordenadas(hospitales + emergencias, cache)
 
     if cache_modificada:
-        _guardar_json(RUTA_CACHE, cache)
+        _guardar_json(RUTAS_CACHE, cache)
 
     # asociamos cada lugar con su nodo vial y descartamos los que no
     # tienen coordenadas o están fuera de la cobertura del grafo.

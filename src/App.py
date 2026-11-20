@@ -16,15 +16,15 @@ CARPETA_INTERFAZ = os.path.dirname(os.path.abspath(__file__))
 CARPETA_SRC = os.path.join(os.path.dirname(CARPETA_INTERFAZ), "src")
 sys.path.insert(0, CARPETA_SRC)
 
-from grafo import cargar_grafo
-from lugares import preparar_lugares
-from heuristica import a_estrella
-from rutas import (
+from Grafo import cargar_grafo
+from Lugares import preparar_lugares
+from Heuristica import a_estrella
+from Rutas import (
     hospitales_disponibles,
     evaluar_hospitales,
     verificar_con_dijkstra,
 )
-from prim import calcular_mst, comparar_individual_vs_mst
+from Prim import calcular_mst, comparar_individual_vs_mst
 
 # colores y fuente 
 COLOR_FONDO = "#eef2f7"

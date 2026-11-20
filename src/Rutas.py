@@ -1,4 +1,4 @@
-from heuristica import a_estrella, mejor_tramo, tiempo_dijkstra
+from Heuristica import a_estrella, mejor_tramo, tiempo_dijkstra
 
 
 def hospitales_disponibles(hospitales):
