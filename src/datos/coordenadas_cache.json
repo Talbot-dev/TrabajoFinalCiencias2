@@ -1,0 +1,77 @@
+{
+  "H1": {
+    "latitud": 4.6233581,
+    "longitud": -74.082687,
+    "consulta": "Hospital Universitario Mayor Méderi, Bogotá, Colombia"
+  },
+  "H2": {
+    "latitud": 4.6430654,
+    "longitud": -74.1010559,
+    "consulta": "Ciudad Salitre Oriental, Bogotá, Colombia"
+  },
+  "H3": {
+    "latitud": 4.6284139,
+    "longitud": -74.0641717,
+    "consulta": "Hospital Universitario San Ignacio, Bogotá, Colombia"
+  },
+  "H4": {
+    "latitud": 4.6363224,
+    "longitud": -74.0738592,
+    "consulta": "Clínica Palermo, Bogotá, Colombia"
+  },
+  "H5": {
+    "latitud": 4.6479773,
+    "longitud": -74.0943308,
+    "consulta": "Calle 44 #59-75, Bogotá, Colombia"
+  },
+  "E04": {
+    "latitud": 4.6387426,
+    "longitud": -74.0852375,
+    "consulta": "Universidad Nacional de Colombia, Bogotá, Colombia"
+  },
+  "E08": {
+    "latitud": 4.6561303,
+    "longitud": -74.0814234,
+    "consulta": "Parque de los Novios, Bogotá, Colombia"
+  },
+  "E09": {
+    "latitud": 4.6427478,
+    "longitud": -74.0739796,
+    "consulta": "Centro Comercial Plaza 54, Bogotá, Colombia"
+  },
+  "E11": {
+    "latitud": 4.6527095,
+    "longitud": -74.0966673,
+    "consulta": "Vive Claro, Bogotá, Colombia"
+  },
+  "E12": {
+    "latitud": 4.6492621,
+    "longitud": -74.0773213,
+    "consulta": "Coliseo El Campín, Bogotá, Colombia"
+  },
+  "E13": {
+    "latitud": 4.6307951,
+    "longitud": -74.0695396,
+    "consulta": "Casa Museo Jorge Eliécer Gaitán, Bogotá, Colombia"
+  },
+  "E14": {
+    "latitud": 4.6525372,
+    "longitud": -74.0821329,
+    "consulta": "Parque Nicolás de Federmán, Bogotá, Colombia"
+  },
+  "E15": {
+    "latitud": 4.6431491,
+    "longitud": -74.0881765,
+    "consulta": "Parque La Esmeralda, Bogotá, Colombia"
+  },
+  "E16": {
+    "latitud": 4.6339906,
+    "longitud": -74.0976655,
+    "consulta": "Parque La Luisita, Bogotá, Colombia"
+  },
+  "E17": {
+    "latitud": 4.6482461,
+    "longitud": -74.0691968,
+    "consulta": "Parque San Luis, Bogotá, Colombia"
+  }
+}

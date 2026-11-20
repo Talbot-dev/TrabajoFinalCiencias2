@@ -1,0 +1,269 @@
+{
+  "hospitales": [
+    {
+      "id": "H1",
+      "nombre": "Hospital Universitario Mayor | Méderi",
+      "direccion": "Calle 24 #29-45",
+      "latitud": null,
+      "longitud": null,
+      "tipo": "hospital",
+      "consulta": "Hospital Universitario Mayor Méderi, Bogotá, Colombia",
+      "disponible_recibir": true,
+      "disponibilidad_simulada": true,
+      "estado_coordenadas": "pendiente_geocodificar"
+    },
+    {
+      "id": "H2",
+      "nombre": "Clínica Universitaria Colombia",
+      "direccion": "Ciudad Salitre Oriental",
+      "latitud": null,
+      "longitud": null,
+      "tipo": "hospital",
+      "consulta": "Clínica Universitaria Colombia, Bogotá, Colombia",
+      "disponible_recibir": true,
+      "disponibilidad_simulada": true,
+      "estado_coordenadas": "pendiente_geocodificar"
+    },
+    {
+      "id": "H3",
+      "nombre": "Hospital Universitario San Ignacio",
+      "direccion": "Carrera 7 #40-62",
+      "latitud": null,
+      "longitud": null,
+      "tipo": "hospital",
+      "consulta": "Hospital Universitario San Ignacio, Bogotá, Colombia",
+      "disponible_recibir": true,
+      "disponibilidad_simulada": true,
+      "estado_coordenadas": "pendiente_geocodificar"
+    },
+    {
+      "id": "H4",
+      "nombre": "Clínica Palermo",
+      "direccion": "Carrera 23 #45C-67",
+      "latitud": null,
+      "longitud": null,
+      "tipo": "hospital",
+      "consulta": "Clínica Palermo, Bogotá, Colombia",
+      "disponible_recibir": true,
+      "disponibilidad_simulada": true,
+      "estado_coordenadas": "pendiente_geocodificar"
+    },
+    {
+      "id": "H5",
+      "nombre": "Hospital Universitario Nacional de Colombia",
+      "direccion": "Calle 44 #59-75",
+      "latitud": null,
+      "longitud": null,
+      "tipo": "hospital",
+      "consulta": "Hospital Universitario Nacional de Colombia, Bogotá, Colombia",
+      "disponible_recibir": true,
+      "disponibilidad_simulada": true,
+      "estado_coordenadas": "pendiente_geocodificar"
+    }
+  ],
+
+  "puntos_emergencia": [
+    {
+      "id": "E01",
+      "nombre": "Parque Metropolitano Simón Bolívar",
+      "direccion": "pendiente",
+      "latitud": 4.658653,
+      "longitud": -74.094160,
+      "tipo": "parque",
+      "estado_coordenadas": "dada_por_usuario"
+    },
+    {
+      "id": "E02",
+      "nombre": "Estadio Nemesio Camacho El Campín",
+      "direccion": "pendiente",
+      "latitud": 4.645926,
+      "longitud": -74.077604,
+      "tipo": "estadio",
+      "estado_coordenadas": "dada_por_usuario"
+    },
+    {
+      "id": "E03",
+      "nombre": "Movistar Arena",
+      "direccion": "pendiente",
+      "latitud": 4.64926,
+      "longitud": -74.07732,
+      "tipo": "arena",
+      "estado_coordenadas": "dada_por_usuario"
+    },
+    {
+      "id": "E04",
+      "nombre": "Universidad Nacional de Colombia (Sede Bogotá)",
+      "direccion": "entradas principales del campus",
+      "latitud": null,
+      "longitud": null,
+      "tipo": "universidad",
+      "consulta": "Universidad Nacional de Colombia, Bogotá, Colombia",
+      "estado_coordenadas": "pendiente_geocodificar"
+    },
+    {
+      "id": "E05",
+      "nombre": "Centro Comercial Galerías",
+      "direccion": "pendiente",
+      "latitud": 4.64271,
+      "longitud": -74.0748,
+      "tipo": "centro_comercial",
+      "estado_coordenadas": "dada_por_usuario"
+    },
+    {
+      "id": "E06",
+      "nombre": "Corredor / Parque del Park Way",
+      "direccion": "pendiente",
+      "latitud": 4.637001,
+      "longitud": -74.07,
+      "tipo": "parque",
+      "estado_coordenadas": "dada_por_usuario"
+    },
+    {
+      "id": "E07",
+      "nombre": "Parque Virgilio Barco y Biblioteca Pública Virgilio Barco",
+      "direccion": "pendiente",
+      "latitud": 4.655986,
+      "longitud": -74.088677,
+      "tipo": "parque",
+      "estado_coordenadas": "dada_por_usuario"
+    },
+    {
+      "id": "E08",
+      "nombre": "Parque de los Novios (Parque El Lago)",
+      "direccion": "pendiente",
+      "latitud": null,
+      "longitud": null,
+      "tipo": "parque",
+      "consulta": "Parque de los Novios, Bogotá, Colombia",
+      "estado_coordenadas": "pendiente_geocodificar"
+    },
+    {
+      "id": "E09",
+      "nombre": "Centro Comercial 54 Plaza",
+      "direccion": "pendiente",
+      "latitud": null,
+      "longitud": null,
+      "tipo": "centro_comercial",
+      "consulta": "Centro Comercial Plaza 54, Bogotá, Colombia",
+      "estado_coordenadas": "pendiente_geocodificar"
+    },
+    {
+      "id": "E10",
+      "nombre": "Centro Empresarial y Recreativo El Cubo",
+      "direccion": "pendiente",
+      "latitud": null,
+      "longitud": null,
+      "tipo": "centro_empresarial",
+      "consulta": "Centro Empresarial El Cubo, Bogotá, Colombia",
+      "estado_coordenadas": "pendiente_geocodificar"
+    },
+    {
+      "id": "E11",
+      "nombre": "Distrito Cultural Vive Claro",
+      "direccion": "pendiente",
+      "latitud": null,
+      "longitud": null,
+      "tipo": "centro_cultural",
+      "consulta": "Vive Claro, Bogotá, Colombia",
+      "estado_coordenadas": "pendiente_geocodificar"
+    },
+    {
+      "id": "E12",
+      "nombre": "Coliseo El Campín",
+      "direccion": "pendiente",
+      "latitud": null,
+      "longitud": null,
+      "tipo": "coliseo",
+      "consulta": "Coliseo El Campín, Bogotá, Colombia",
+      "estado_coordenadas": "pendiente_geocodificar"
+    },
+    {
+      "id": "E13",
+      "nombre": "Casa Museo Jorge Eliécer Gaitán",
+      "direccion": "pendiente",
+      "latitud": null,
+      "longitud": null,
+      "tipo": "museo",
+      "consulta": "Casa Museo Jorge Eliécer Gaitán, Bogotá, Colombia",
+      "estado_coordenadas": "pendiente_geocodificar"
+    },
+    {
+      "id": "E14",
+      "nombre": "Parque Nicolás de Federmán",
+      "direccion": "Carrera 36A #58-22",
+      "latitud": null,
+      "longitud": null,
+      "tipo": "parque",
+      "consulta": "Parque Nicolás de Federmán, Bogotá, Colombia",
+      "estado_coordenadas": "pendiente_geocodificar"
+    },
+    {
+      "id": "E15",
+      "nombre": "Parque La Esmeralda",
+      "direccion": "Carrera 54 #44C",
+      "latitud": null,
+      "longitud": null,
+      "tipo": "parque",
+      "consulta": "Parque La Esmeralda, Bogotá, Colombia",
+      "estado_coordenadas": "pendiente_geocodificar"
+    },
+    {
+      "id": "E16",
+      "nombre": "Parque La Luisita",
+      "direccion": "Carrera 45 #22-68",
+      "latitud": null,
+      "longitud": null,
+      "tipo": "parque",
+      "consulta": "Parque La Luisita, Bogotá, Colombia",
+      "estado_coordenadas": "pendiente_geocodificar"
+    },
+    {
+      "id": "E17",
+      "nombre": "Parque San Luis",
+      "direccion": "Calle 60 #18-41",
+      "latitud": null,
+      "longitud": null,
+      "tipo": "parque",
+      "consulta": "Parque San Luis, Bogotá, Colombia",
+      "estado_coordenadas": "pendiente_geocodificar"
+    },
+    {
+      "id": "E18",
+      "nombre": "Avenida Carrera 30 (NQS), tramo Teusaquillo",
+      "direccion": "punto de referencia sugerido: Carrera 30 con Calle 45 (verificar)",
+      "latitud": null,
+      "longitud": null,
+      "tipo": "avenida",
+      "consulta": "Avenida Carrera 30 con Calle 45, Bogotá, Colombia",
+      "estado_coordenadas": "pendiente_geocodificar"
+    },
+    {
+      "id": "E19",
+      "nombre": "Avenida Caracas, tramo Teusaquillo",
+      "direccion": "punto de referencia sugerido: Avenida Caracas con Calle 45 (verificar)",
+      "latitud": null,
+      "longitud": null,
+      "tipo": "avenida",
+      "consulta": "Avenida Caracas con Calle 45, Bogotá, Colombia",
+      "estado_coordenadas": "pendiente_geocodificar"
+    },
+    {
+      "id": "E20",
+      "nombre": "Avenida El Dorado (Calle 26), tramo Teusaquillo",
+      "direccion": "punto de referencia sugerido: Calle 26 con Carrera 30 (verificar)",
+      "latitud": null,
+      "longitud": null,
+      "tipo": "avenida",
+      "consulta": "Avenida El Dorado con Carrera 30, Bogotá, Colombia",
+      "estado_coordenadas": "pendiente_geocodificar"
+    }
+  ],
+
+  "ambulancias": [
+    {"id": "A1", "nombre": "Ambulancia Méderi 01", "hospital_id": "H1", "disponible": true, "simulada": true},
+    {"id": "A2", "nombre": "Ambulancia Clínica Colombia 01", "hospital_id": "H2", "disponible": true, "simulada": true},
+    {"id": "A3", "nombre": "Ambulancia San Ignacio 01", "hospital_id": "H3", "disponible": true, "simulada": true},
+    {"id": "A4", "nombre": "Ambulancia Palermo 01", "hospital_id": "H4", "disponible": true, "simulada": true},
+    {"id": "A5", "nombre": "Ambulancia Hospital Nacional 01", "hospital_id": "H5", "disponible": true, "simulada": true}
+  ]
+}
