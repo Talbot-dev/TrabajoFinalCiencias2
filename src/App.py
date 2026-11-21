@@ -11,7 +11,6 @@ from matplotlib.backends.backend_tkagg import (
     NavigationToolbar2Tk,
 )
 
-# aqui agrego todo lo de src
 CARPETA_INTERFAZ = os.path.dirname(os.path.abspath(__file__))
 CARPETA_SRC = os.path.join(os.path.dirname(CARPETA_INTERFAZ), "src")
 sys.path.insert(0, CARPETA_SRC)
